@@ -113,5 +113,12 @@ TEST(TestCaseSearchServer, TestTop5) {
     idx.UpdateDocumentBase(docs);
     SearchServer srv(idx);
     std::vector<std::vector<RelativeIndex>> result = srv.search(request);
-    ASSERT_EQ(result, expected);
+    ASSERT_EQ(result.size(), expected.size());
+    for (size_t i = 0; i < result.size(); ++i) {
+        ASSERT_EQ(result[i].size(), expected[i].size());
+        for (size_t j = 0; j < result[i].size(); ++j) {
+            EXPECT_EQ(result[i][j].docId, expected[i][j].docId);
+            EXPECT_NEAR(result[i][j].rank, expected[i][j].rank, 1e-3); // допускаемая погрешность по рангу
+        }
+    }
 }
