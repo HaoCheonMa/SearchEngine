@@ -18,7 +18,7 @@
 - CMake 3.14 и выше  
 - Google Test (для тестов)  
 - Зависимость: nlohmann_json  
-- Компилятор MinGW  
+- Компилятор MinGW или MSVS
 
 ---
 
@@ -34,7 +34,13 @@ mkdir build
 
 cd build
 
-cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
+*Компиляторы*
+
+MinGW: "MinGW Makefiles"
+
+MSVS: "Visual Studio 17 2022"
+
+cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G *компилятор* .. 
 
 cmake --build .
 
@@ -54,9 +60,11 @@ cmake --build .
 
 ./tests.exe
 
-TestTop5 покажет FAILED из за особенностей типа float и компилятора MinGW. 
+ВНИМАНИЕ! 
 
-Если запустить через компилятор MSVS, то все тесты будут пройдены.
+Если запускать тесты через MinGW, то из за особенностей типа float и самого компилятора, один тест покажет FAILED.
+
+При запуске через компилятор MSVS все тесты будут пройдены.
 
 ---
 
