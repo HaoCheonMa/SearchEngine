@@ -1,0 +1,132 @@
+#include "converterjson.h"
+
+const std::string ConverterJSON::configPath = "../../../json/config.json";
+const std::string ConverterJSON::requestsPath = "../../../json/requests.json";
+const std::string ConverterJSON::answersPath = "../../../json/answers.json";
+
+nlohmann::json ConverterJSON::GetJSONText(const std::string & path) {
+	std::ifstream configFile(path);
+	nlohmann::json configText;
+	if (configFile.is_open()) {
+		configFile >> configText;
+		configFile.close();
+	}
+	else
+		std::cerr << "**Invalid file path**\n\n";
+	return configText;
+}
+
+static std::string ToLowerCase(const std::string& input) {
+	std::string result = input;
+	for (int i = 0; i < (int)(result.length()); ++i) {
+		char ch = result[i];
+		if (ch >= 'A' && ch <= 'Z') {
+			result[i] = ch + ('a' - 'A');
+		}
+	}
+	return result;
+}
+
+std::vector<std::string> ConverterJSON::GetTextDocuments() {
+	std::vector<std::string> fileContent;
+	const std::string filesKey = "files";
+	std::vector<std::string> filePaths;
+	nlohmann::json configText = ConverterJSON::GetJSONText(configPath);
+	if (configText.contains(filesKey)) {
+		filePaths = configText[filesKey].get<std::vector<std::string>>();
+	}
+	else {
+		std::cerr << "**Empty files list**\n\n";
+		return filePaths;;
+	}
+
+	for (auto& path : filePaths) {
+		std::ifstream fileText(path);
+		std::stringstream buffer;
+		buffer << fileText.rdbuf();
+		fileContent.push_back(buffer.str());
+	}
+
+	for (int i = 0; i < fileContent.size(); ++i)
+		fileContent[i] = ToLowerCase(fileContent[i]);
+
+	return fileContent;
+}
+
+int ConverterJSON::GetResponsesLimit(){
+	nlohmann::json configText = GetJSONText(configPath);
+	int responsesLimit = 0;
+	if (!configText.contains("config") || !configText["config"].contains("max_responses")) {
+		std::cerr << "**Not found responses limit**\n\n";
+		return -1;
+	}
+	responsesLimit = configText["config"]["max_responses"];
+
+	if (responsesLimit <= 0) {
+		std::cerr << "**Invalid responses value**\n\n";
+		return -1;
+	}
+
+	return responsesLimit;
+}
+
+std::vector<std::string> ConverterJSON::GetRequests() {
+	nlohmann::json requestsText = GetJSONText(requestsPath);
+	std::vector<std::string> requests;
+	if (!requestsText.contains("requests")) {
+		std::cerr << "**Invalid file content**\n\n";
+		return requests;
+	}
+	
+	if (!requestsText.empty())
+		return requests = requestsText["requests"].get<std::vector<std::string>>();
+	else {
+		std::cerr << "**Empty requests**\n\n";
+		return requests;
+	}
+}
+
+void ConverterJSON::putAnswers(const std::vector<std::vector<std::pair<int, float>>> answers) {
+	nlohmann::json root = nlohmann::json::object();
+	nlohmann::json answersJSON = nlohmann::json::object();
+
+	for (size_t i = 0; i < answers.size(); ++i) {
+		int reqNum = static_cast<int>(i) + 1;
+		std::string requestId = std::string("request") +
+			(reqNum < 10 ? "00" : (reqNum < 100 ? "0" : "")) +
+			std::to_string(reqNum);
+		const auto& docs = answers[i];
+		if (docs.empty()) {
+			answersJSON[requestId]["result"] = "false";
+		}
+		else if (docs.size() == 1) {
+			answersJSON[requestId]["result"] = "true";
+			answersJSON[requestId]["docid"] = docs[0].first;
+			double roundedRank = std::round(docs[0].second * 1000.0) / 1000.0;
+			answersJSON[requestId]["rank"] = roundedRank;
+		}
+		else {
+			answersJSON[requestId]["result"] = "true";
+			nlohmann::json relevance_array = nlohmann::json::array();
+			for (const auto& [docid, rank] : docs) {
+				nlohmann::json doc_json;
+				doc_json["docid"] = docid;
+				double roundedRank = std::round(rank * 1000.0) / 1000.0;
+				doc_json["rank"] = roundedRank;
+				relevance_array.push_back(doc_json);
+			}
+			answersJSON[requestId]["relevance"] = relevance_array;
+		}
+	}
+	root["answers"] = answersJSON;
+	std::ofstream ofs(answersPath);
+	if (!ofs.is_open()) {
+		std::cerr << "Cannot open " << answersPath << " for writing" << std::endl;
+		return;
+	}
+	ofs << std::setw(4) << root << std::endl;
+	std::cout << "\n**Success**\n\n";
+}
+
+
+

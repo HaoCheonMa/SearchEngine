@@ -12,37 +12,6 @@
 
 ---
 
-## Структура проекта
-
-SearchEngine/
-|
-├── HeaderFiles/ # Заголовочные файлы (.h)
-│ ├── converterjson.h
-│ ├── invertedindex.h
-│ └── searchserver.h
-│
-├── SourceFiles/ # Исходные файлы (.cpp)
-│ ├── converterjson.cpp
-│ ├── invertedindex.cpp
-│ ├── main.cpp
-│ └── searchserver.cpp
-│
-├── json/ # JSON-файлы с конфигурацией, запросами и ответами
-│ ├── config.json
-│ ├── requests.json
-│ └── answers.json
-│
-├── nlohmann_json/ # Подключаемая библиотека JSON
-│
-├── Tests/ # Модульные тесты (gtest)
-│ └── tests.cpp
-│
-├── CMakeLists.txt # Сценарий сборки CMake
-│
-└── README.md # Инструкция
-
----
-
 ## Требования
 
 - Компилятор с поддержкой C++17
