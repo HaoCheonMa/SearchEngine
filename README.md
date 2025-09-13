@@ -18,49 +18,22 @@
 - CMake 3.14 и выше
 - Google Test (для тестов)
 - Зависимость: nlohmann_json
+- Компилятор MinGW
 
 ---
 
 ## Сборка проекта
 
-1. Клонировать репозиторий:
+Чтобы собрать проект используйте следующую команду
 
-git clone <URL_репозитория>
-cd SearchEngine
+git clone https://github.com/HaoCheonMa/SearchEngine.git 
+&& cd SearchEngine 
+&& mkdir build && cd build 
+&& cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" .. 
+&& cmake --build .
 
-2. Создать директорию сборки и перейти в неё:
-
-mkdir build
-cd build
-
-3. Запустить CMake и собрать проект:
-
-cmake ..
-cmake --build .
-
----
-
-## Запуск приложения
-
-Выполнить исполняемый файл из каталога сборки:
-
-./ITBoxSearchEngine
-
-В командной строке ввести команду:
-
-search
-
-После этого будут обработаны запросы из `json/requests.json`. Результаты поиска запишутся в `json/answers.json`.
-
----
-
-## Тестирование
-
-Для запуска тестов предусмотрен исполняемый файл с тестами (Google Test):
-
-./runTests
-
-Все тесты должны проходить успешно, что подтверждает корректность реализации классов.
+Для запуска проекта введите: ./SearchEngine.exe
+Для запуска тестов: ./tests.exe
 
 ---
 
