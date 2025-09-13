@@ -16,15 +16,14 @@ nlohmann::json ConverterJSON::GetJSONText(const std::string & path) {
 	return configText;
 }
 
-static std::string ToLowerCase(const std::string& input) {
-	std::string result = input;
-	for (int i = 0; i < (int)(result.length()); ++i) {
-		char ch = result[i];
-		if (ch >= 'A' && ch <= 'Z') {
-			result[i] = ch + ('a' - 'A');
-		}
-	}
-	return result;
+static std::string NormalizeWord(const std::string& word) {
+    std::string result;
+    for (char c : word) {
+        if (std::isalpha(static_cast<unsigned char>(c))) {
+            result += std::tolower(static_cast<unsigned char>(c));
+        }
+    }
+    return result;
 }
 
 std::vector<std::string> ConverterJSON::GetTextDocuments() {
@@ -48,7 +47,7 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
 	}
 
 	for (int i = 0; i < fileContent.size(); ++i)
-		fileContent[i] = ToLowerCase(fileContent[i]);
+		fileContent[i] = NormalizeWord(fileContent[i]);
 
 	return fileContent;
 }
