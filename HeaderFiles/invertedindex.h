@@ -21,7 +21,7 @@ public:
 
 	//Îáíîâëåíèå ñëîâàðÿ è ñïèñêà äîêóìåíòîâ
 	static void UpdateDocumentBase(std::vector<std::string> inputDocs);
-	static const std::map<std::string, std::vector<Entry>>& GetFreqDictionary() { return freqDictionary; }
+	static const std::map<std::string, std::vector<Entry>> GetFreqDictionary() { return freqDictionary; }
 	static std::vector<Entry> GetWordCount(const std::string& word);
 
 private:
