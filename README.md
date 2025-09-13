@@ -44,7 +44,7 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 - cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
 - или
-- cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022"
+- cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" ..
 
 - cmake --build .
 
