@@ -26,13 +26,13 @@
 
 Клонируйте репозиторий и соберите проект, выполнив следующие команды:
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git
+- git clone https://github.com/HaoCheonMa/SearchEngine.git
 
-cd SearchEngine
+- cd SearchEngine
 
-mkdir build
+- mkdir build
 
-cd build
+- cd build
 
 *Компиляторы*
 
@@ -40,9 +40,9 @@ MinGW: "MinGW Makefiles"
 
 MSVS: "Visual Studio 17 2022"
 
-cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G *компилятор* .. 
+- cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G *компилятор* .. 
 
-cmake --build .
+- cmake --build .
 
 ---
 
