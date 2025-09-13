@@ -1,4 +1,4 @@
-#include "searchserver.h"|#
+#include "searchserver.h"
 
 static std::string NormalizeWord(const std::string& word) {
     std::string result;
