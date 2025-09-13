@@ -1,8 +1,8 @@
 #include "converterjson.h"
 
-const std::string ConverterJSON::configPath = "../../../json/config.json";
-const std::string ConverterJSON::requestsPath = "../../../json/requests.json";
-const std::string ConverterJSON::answersPath = "../../../json/answers.json";
+const std::string ConverterJSON::configPath = "../json/config.json";
+const std::string ConverterJSON::requestsPath = "../json/requests.json";
+const std::string ConverterJSON::answersPath = "../json/answers.json";
 
 nlohmann::json ConverterJSON::GetJSONText(const std::string & path) {
 	std::ifstream configFile(path);
