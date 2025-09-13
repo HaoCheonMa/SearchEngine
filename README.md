@@ -52,21 +52,25 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 ## Запуск проекта
 
-Для запуска приложения выполните:
+Для запуска приложения выполните(bash):
 
-./SearchEngine.exe
+MinGW: ./SearchEngine.exe 
+
+MSVS: Debug/SearchEngine.exe
 
 ВНИМАНИЕ!
 
-При сборке проекта с помощью MSVS, необходимо перенести папку json в build
+При сборке проекта с помощью MSVS, необходимо перенести папку json в build 
 
 ---
 
 ## Запуск тестов
 
-Для запуска модульных тестов выполните:
+Для запуска модульных тестов выполните(bash):
 
-./tests.exe
+MinGW: ./tests.exe
+
+MSVS: Debug/tests.exe
 
 ВНИМАНИЕ! 
 
