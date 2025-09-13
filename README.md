@@ -15,8 +15,7 @@
 ## Требования
  
 - CMake
-- Google Test (для тестов)  
-- Зависимость: nlohmann_json  
+- Bash и т.п. 
 - Компилятор MinGW или MSVS
 
 ---
