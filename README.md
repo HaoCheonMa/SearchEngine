@@ -50,6 +50,10 @@ MSVS: "Visual Studio 17 2022"
 
 ./SearchEngine.exe
 
+ВНИМАНИЕ!
+
+Если вы собрали проект с помощью MSVS, перенесите папку json в build
+
 ---
 
 ## Запуск тестов
