@@ -24,11 +24,11 @@
 
 Команда для быстрой вставки: 
 
-MinGW:
+##MinGW:
 
 git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" .. && cmake --build .
 
-MSVS:
+##MSVS:
 
 git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" .. && cmake --build .
 
@@ -54,11 +54,11 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 Для запуска приложения выполните(bash):
 
-MinGW: ./SearchEngine.exe 
+##MinGW: ./SearchEngine.exe 
 
-MSVS: Debug/SearchEngine.exe
+##MSVS: Debug/SearchEngine.exe
 
-ВНИМАНИЕ!
+##ВНИМАНИЕ!
 
 При сборке проекта с помощью MSVS, необходимо перенести папку json в build 
 
@@ -68,17 +68,25 @@ MSVS: Debug/SearchEngine.exe
 
 Для запуска модульных тестов выполните(bash):
 
-MinGW: ./tests.exe
+##MinGW: ./tests.exe
 
-MSVS: Debug/tests.exe
+##MSVS: Debug/tests.exe
 
-ВНИМАНИЕ! 
+##ВНИМАНИЕ! 
 
 При запуске тестов проекта, собранного с помощью MinGW, из за особенностей типа float и самого компилятора, один тест покажет FAILED, не пугайтесь.
 
 При сборке через MSVS все тесты будут успешно пройдены.
 
 ---
+
+##Команды
+
+--
+
+##search## - поиск по установкам из папки json
+
+--
 
 ## Функциональность проекта
 
