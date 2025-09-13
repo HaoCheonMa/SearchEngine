@@ -22,13 +22,15 @@
 
 ## Сборка проекта
 
-По умолчанию собирается через MinGW, чтобы использовать MSVS:
-
-замените "MinGW Makefiles" -> "Visual Studio 17 2022" при сборке
-
 Команда для быстрой вставки: 
 
+MinGW:
+
 git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" .. && cmake --build .
+
+MSVS:
+
+git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" .. && cmake --build .
 
 Команды по отдельности:
 
@@ -40,7 +42,9 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 - cd build
 
-- cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" .. 
+- cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
+- или
+- cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022"
 
 - cmake --build .
 
