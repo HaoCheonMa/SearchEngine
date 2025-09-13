@@ -27,10 +27,15 @@
 Клонируйте репозиторий и соберите проект, выполнив следующие команды:
 
 git clone https://github.com/HaoCheonMa/SearchEngine.git
+
 cd SearchEngine
+
 mkdir build
+
 cd build
+
 cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
+
 cmake --build .
 
 text
