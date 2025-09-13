@@ -67,9 +67,14 @@ int main() {
 			cmdStr.clear();
 		}
 
-		if (inCmd != "search") {
+		if (inCmd != "search" && inCmd != "stop") {
 			std::cerr << "**Unknown command**\n\n";
 			continue;
+		}
+
+		if (inCmd == "stop"){
+			std::cout << "**Exit**\n\n";
+			return 1;
 		}
 
 		if (!SearchEngine::IsSuccessStart()) {
@@ -91,7 +96,7 @@ int main() {
 			answers.push_back(std::move(converted));
 		}
 
-		// Ηΰοθρϋβΰεμ answers β JSON
+		// Γ‡Γ Γ―Γ¨Γ±Γ»ΓΆΓ Γ¥Γ¬ answers ΓΆ JSON
 		ConverterJSON::putAnswers(answers);
 	}
 }
