@@ -16,7 +16,7 @@
  
 - CMake
 - Bash, CMD и т.п. 
-- Компилятор MinGW или MSVS
+- Компилятор MinGW или MSVC
 
 ---
 
@@ -28,7 +28,7 @@
 
 git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" .. && cmake --build .
 
-*MSVS*:
+*MSVC*:
 
 git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" .. && cmake --build .
 
@@ -56,11 +56,11 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 *MinGW*: ./SearchEngine.exe 
 
-*MSVS*: Debug/SearchEngine.exe
+*MSVC*: Debug/SearchEngine.exe
 
 *ВНИМАНИЕ!*
 
-Если проект собран с MSVS, необходимо перенести папку json в build 
+Если проект собран с MSVC, необходимо перенести папку json в build 
 
 ---
 
@@ -70,13 +70,13 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 *MinGW: ./tests.exe*
 
-*MSVS: Debug/tests.exe*
+*MSVC: Debug/tests.exe*
 
 *ВНИМАНИЕ!* 
 
 При запуске тестов проекта, собранного с помощью MinGW, из за особенностей типа float и самого компилятора, один тест покажет FAILED, не пугайтесь.
 
-При сборке через MSVS все тесты будут успешно пройдены.
+При сборке через MSVC все тесты будут успешно пройдены.
 
 ---
 
