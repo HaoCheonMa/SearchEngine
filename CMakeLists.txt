@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.14.0)
+cmake_minimum_required (VERSION 3.22.0)
 
 get_filename_component(PROJECT_FOLDER_NAME ${CMAKE_SOURCE_DIR} NAME)
 project(${PROJECT_FOLDER_NAME})
@@ -55,5 +55,5 @@ target_link_libraries(tests PRIVATE
     nlohmann_json::nlohmann_json
 )
 
-# Автоматическое добавление теста для CTest
+# ГЂГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГ®ГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГІГҐГ±ГІГ  Г¤Г«Гї CTest
 add_test(NAME AllTests COMMAND tests)
