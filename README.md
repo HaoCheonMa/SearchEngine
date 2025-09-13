@@ -26,10 +26,10 @@
 
 Чтобы собрать проект используйте следующую команду
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git
-&& cd SearchEngine
-&& mkdir build && cd build
-&& cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
+git clone https://github.com/HaoCheonMa/SearchEngine.git\n
+&& cd SearchEngine\n
+&& mkdir build && cd build\n
+&& cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..\n
 && cmake --build .
 
 Для запуска проекта введите: ./SearchEngine.exe
