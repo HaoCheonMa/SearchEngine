@@ -38,8 +38,6 @@ cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
 
 cmake --build .
 
-text
-
 ---
 
 ## Запуск проекта
@@ -48,8 +46,6 @@ text
 
 ./SearchEngine.exe
 
-text
-
 ---
 
 ## Запуск тестов
@@ -57,8 +53,6 @@ text
 Для запуска модульных тестов выполните:
 
 ./tests.exe
-
-text
 
 ---
 
