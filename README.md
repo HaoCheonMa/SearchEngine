@@ -72,7 +72,7 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 *MSVS: Debug/tests.exe*
 
-## ВНИМАНИЕ! 
+*ВНИМАНИЕ!* 
 
 При запуске тестов проекта, собранного с помощью MinGW, из за особенностей типа float и самого компилятора, один тест покажет FAILED, не пугайтесь.
 
