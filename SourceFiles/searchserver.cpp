@@ -11,7 +11,7 @@ static std::string NormalizeWord(const std::string& word) {
 }
 
 std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<std::string>& queriesInput) {
-    auto freqDictionary = InvertedIndex::GetFreqDictionary();
+    auto& freqDictionary = InvertedIndex::GetFreqDictionary();
     std::vector<std::vector<RelativeIndex>> docsRelevance;
 
     int maxResponses = ConverterJSON::GetResponsesLimit();
