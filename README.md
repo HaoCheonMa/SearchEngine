@@ -60,7 +60,7 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 *ВНИМАНИЕ!*
 
-При сборке проекта с помощью MSVS, необходимо перенести папку json в build 
+Если проект собран с MSVS, необходимо перенести папку json в build 
 
 ---
 
