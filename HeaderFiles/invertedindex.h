@@ -19,12 +19,12 @@ class InvertedIndex {
 public:
 	InvertedIndex() = default;
 
-	//Обновление словаря и списка документов
+	//ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г±Г«Г®ГўГ Г°Гї ГЁ Г±ГЇГЁГ±ГЄГ  Г¤Г®ГЄГіГ¬ГҐГ­ГІГ®Гў
 	static void UpdateDocumentBase(std::vector<std::string> inputDocs);
-	static std::map<std::string, std::vector<Entry>> GetFreqDictionary() { return freqDictionary; }
+	static const std::map<std::string, std::vector<Entry>>& GetFreqDictionary() { return freqDictionary; }
 	static std::vector<Entry> GetWordCount(const std::string& word);
 
 private:
-	static std::vector<std::string> docs; //список документов
-	static std::map<std::string, std::vector<Entry>> freqDictionary; //частотный словарь
+	static std::vector<std::string> docs; //Г±ГЇГЁГ±Г®ГЄ Г¤Г®ГЄГіГ¬ГҐГ­ГІГ®Гў
+	static std::map<std::string, std::vector<Entry>> freqDictionary; //Г·Г Г±ГІГ®ГІГ­Г»Г© Г±Г«Г®ГўГ Г°Гј
 };
