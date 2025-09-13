@@ -84,8 +84,7 @@ git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && m
 
 --
 
-*search* 
-- поиск по установкам из папки json
+*search* - поиск по установкам из папки json
 
 --
 
