@@ -11,32 +11,36 @@
 class ConverterJSON {
 public:
 	ConverterJSON() = default;
+
 	/**
-	* ГЊГҐГІГ®Г¤ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГЈГ® ГґГ Г©Г«Г®Гў
-	* @return Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ Г±ГЇГЁГ±Г®ГЄ Г± Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г»Г¬ ГґГ Г©Г«Г®Гў ГЇГҐГ°ГҐГ·ГЁГ±Г«ГҐГ­Г­Г»Гµ
-	* Гў config.json
+	* Метод получения содержимого файлов
+	* @return Возвращает список с содержимым файлов перечисленных
+	* в config.json
 	*/
-	static std::vector<std::string> GetTextDocuments(); 
+	static std::vector<std::string> getTextDocuments(); 
 	/**
-	* ГЊГҐГІГ®Г¤ Г±Г·ГЁГІГ»ГўГ ГҐГІ ГЇГ®Г«ГҐ max_responses Г¤Г«Гї Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЇГ°ГҐГ¤ГҐГ«ГјГ­Г®ГЈГ®
-	* ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  Г®ГІГўГҐГІГ®Гў Г­Г  Г®Г¤ГЁГ­ Г§Г ГЇГ°Г®Г±
+	* Метод считывает поле max_responses для определения предельного
+	* количества ответов на один запрос
 	* @return
 	*/
-	static int GetResponsesLimit();
+	static int getResponsesLimit();
 	/**
-	* ГЊГҐГІГ®Г¤ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г§Г ГЇГ°Г®Г±Г®Гў ГЁГ§ ГґГ Г©Г«Г  requests.json
-	* @return ГўГ®Г§ГўГ°Г Г№Г ГҐГІ Г±ГЇГЁГ±Г®ГЄ Г§Г ГЇГ°Г®Г±Г®Гў ГЁГ§ ГґГ Г©Г«Г  requests.json
+	* Метод получения запросов из файла requests.json
+	* @return возвращает список запросов из файла requests.json
 	*/
-	static std::vector<std::string> GetRequests();
+	static std::vector<std::string> getRequests();
 	/**
-	* ГЏГ®Г«Г®Г¦ГЁГІГј Гў ГґГ Г©Г« answers.json Г°ГҐГ§ГіГ«ГјГІГ ГІГ» ГЇГ®ГЁГ±ГЄГ®ГўГ»Гµ Г§Г ГЇГ°Г®Г±Г®Гў
+	* Положить в файл answers.json результаты поисковых запросов
 	*/
 	static void putAnswers(std::vector<std::vector<std::pair<int, float>>> answers);
-
-	static nlohmann::json GetJSONText(const std::string& path);
-	static const std::string configPath;
+	/**
+	* Метод получения текста из JSON файлов
+	* @param path принимает путь к файлу
+	* @return возвращает информацию содержащуюся в JSON файле
+	*/
+	static nlohmann::json getJSONText(const std::string& path);
+	static const std::string configPath; // путь к конфиг файлу
 
 private:
-	static const std::string requestsPath;
-	static const std::string answersPath;
+	static const std::string requestsPath; // путь к файлу запросов
 };

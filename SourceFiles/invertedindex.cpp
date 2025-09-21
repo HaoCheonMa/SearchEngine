@@ -1,9 +1,10 @@
 #include "invertedindex.h"
+#include <iostream>
 std::mutex mtx;
 std::vector<std::string> InvertedIndex::docs;
 std::map<std::string, std::vector<Entry>> InvertedIndex::freqDictionary;
 
-static std::string NormalizeWord(const std::string& word) {
+static std::string normalizeWord(const std::string& word) {
     std::string result;
     for (char c : word) {
         if (std::isalpha(static_cast<unsigned char>(c))) {
@@ -13,7 +14,7 @@ static std::string NormalizeWord(const std::string& word) {
     return result;
 }
 
-void InvertedIndex::UpdateDocumentBase(std::vector<std::string> inputDocs) {
+void InvertedIndex::updateDocumentBase(std::vector<std::string> inputDocs) {
     docs = std::move(inputDocs);
     freqDictionary.clear();
 
@@ -26,7 +27,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> inputDocs) {
             std::string word;
             std::map<std::string, size_t> localCount;
             while (ss >> word) {
-                std::string lowered = NormalizeWord(word);
+                std::string lowered = normalizeWord(word);
                 ++localCount[lowered];
             }
             wordCountPerDoc[docId] = std::move(localCount);
@@ -43,11 +44,15 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> inputDocs) {
             freqDictionary[word].push_back({ docId, count });
         }
     }
+
+    if (freqDictionary.size() == 0) {
+        std::cout << "FATAL:";
+    }
 }
 
 
-std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word) {
-    std::string wordLower = NormalizeWord(word);
+std::vector<Entry> InvertedIndex::getWordCount(const std::string& word) {
+    std::string wordLower = normalizeWord(word);
     if (freqDictionary.count(wordLower))
         return freqDictionary[wordLower];
     else

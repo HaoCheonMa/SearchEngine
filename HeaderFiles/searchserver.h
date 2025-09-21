@@ -9,6 +9,9 @@
 #include "invertedindex.h"
 #include "converterjson.h"
 
+/**
+* Структура, содержащая данные релевантности ответа
+*/
 struct RelativeIndex {
 	size_t docId;
 	float rank;

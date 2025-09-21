@@ -1,10 +1,9 @@
 #include "converterjson.h"
 
-const std::string ConverterJSON::configPath = "../json/config.json";
-const std::string ConverterJSON::requestsPath = "../json/requests.json";
-const std::string ConverterJSON::answersPath = "../json/answers.json";
+const std::string ConverterJSON::configPath = "config.json";
+const std::string ConverterJSON::requestsPath = "requests.json";
 
-nlohmann::json ConverterJSON::GetJSONText(const std::string & path) {
+nlohmann::json ConverterJSON::getJSONText(const std::string & path) {
 	std::ifstream configFile(path);
 	nlohmann::json configText;
 	if (configFile.is_open()) {
@@ -16,7 +15,7 @@ nlohmann::json ConverterJSON::GetJSONText(const std::string & path) {
 	return configText;
 }
 
-static std::string NormalizeWord(const std::string& word) {
+static std::string normalizeWord(const std::string& word) {
     std::string result;
     for (char c : word) {
         if (std::isalpha(static_cast<unsigned char>(c))) {
@@ -26,11 +25,11 @@ static std::string NormalizeWord(const std::string& word) {
     return result;
 }
 
-std::vector<std::string> ConverterJSON::GetTextDocuments() {
+std::vector<std::string> ConverterJSON::getTextDocuments() {
 	std::vector<std::string> fileContent;
 	const std::string filesKey = "files";
 	std::vector<std::string> filePaths;
-	nlohmann::json configText = ConverterJSON::GetJSONText(configPath);
+	nlohmann::json configText = getJSONText(configPath);
 	if (configText.contains(filesKey)) {
 		filePaths = configText[filesKey].get<std::vector<std::string>>();
 	}
@@ -47,13 +46,13 @@ std::vector<std::string> ConverterJSON::GetTextDocuments() {
 	}
 
 	for (int i = 0; i < fileContent.size(); ++i)
-		fileContent[i] = NormalizeWord(fileContent[i]);
+		fileContent[i] = normalizeWord(fileContent[i]);
 
 	return fileContent;
 }
 
-int ConverterJSON::GetResponsesLimit(){
-	nlohmann::json configText = GetJSONText(configPath);
+int ConverterJSON::getResponsesLimit(){
+	nlohmann::json configText = getJSONText(configPath);
 	int responsesLimit = 0;
 	if (!configText.contains("config") || !configText["config"].contains("max_responses")) {
 		std::cerr << "**Not found responses limit**\n\n";
@@ -69,8 +68,8 @@ int ConverterJSON::GetResponsesLimit(){
 	return responsesLimit;
 }
 
-std::vector<std::string> ConverterJSON::GetRequests() {
-	nlohmann::json requestsText = GetJSONText(requestsPath);
+std::vector<std::string> ConverterJSON::getRequests() {
+	nlohmann::json requestsText = getJSONText(requestsPath);
 	std::vector<std::string> requests;
 	if (!requestsText.contains("requests")) {
 		std::cerr << "**Invalid file content**\n\n";
@@ -118,9 +117,9 @@ void ConverterJSON::putAnswers(const std::vector<std::vector<std::pair<int, floa
 		}
 	}
 	root["answers"] = answersJSON;
-	std::ofstream ofs(answersPath);
+	std::ofstream ofs("json/answer.json");
 	if (!ofs.is_open()) {
-		std::cerr << "Cannot open " << answersPath << " for writing" << std::endl;
+		std::cerr << "Cannot open answer.json for writing" << std::endl;
 		return;
 	}
 	ofs << std::setw(4) << root << std::endl;
