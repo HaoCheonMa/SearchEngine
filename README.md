@@ -24,7 +24,7 @@
 
 Команда для быстрой вставки: 
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" .. && cmake --build .
+git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" && cmake --build .
 
 Команды по отдельности:
 
