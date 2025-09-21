@@ -1,7 +1,7 @@
 #include "converterjson.h"
 
-const std::string ConverterJSON::configPath = "config.json";
-const std::string ConverterJSON::requestsPath = "requests.json";
+const std::string ConverterJSON::configPath = "../config/config.json";
+const std::string ConverterJSON::requestsPath = "../config/requests.json";
 
 nlohmann::json ConverterJSON::getJSONText(const std::string & path) {
 	std::ifstream configFile(path);
@@ -117,9 +117,9 @@ void ConverterJSON::putAnswers(const std::vector<std::vector<std::pair<int, floa
 		}
 	}
 	root["answers"] = answersJSON;
-	std::ofstream ofs("json/answer.json");
+	std::ofstream ofs("../config/answer.json");
 	if (!ofs.is_open()) {
-		std::cerr << "Cannot open answer.json for writing" << std::endl;
+		std::cerr << "Cannot open answers.json for writing" << std::endl;
 		return;
 	}
 	ofs << std::setw(4) << root << std::endl;

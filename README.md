@@ -9,9 +9,6 @@
 
 ## Структура проекта
 
-
-- `bin/` — исполняемые файлы
-
 - `config/` — конфигурационные файлы и данные
 
 - `resources/` — исходные тексты для индексации
@@ -23,11 +20,11 @@
 
 ## Сборка
 
-Необходимо иметь компилятор MSVC
+Необходимо иметь компилятор MinGW
 
 Команда в одну строку:
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" .. && cmake --build . --config Release
+git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" && cmake --build .
 
 Команды по отдельности:
 
@@ -35,19 +32,17 @@ https://github.com/HaoCheonMa/SearchEngine.git
 
 cd SearchEngine
 
-mkdir build
+cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles"
 
-cd build
-
-cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" ..
-
-cmake --build . --config Release
+cmake --build .
 
 Запуск
 
 bash
 
-./bin/searchserver
+`./src/searchserver\`- запуск движка
+
+`./tests/servertest\`- запуск тестов
 
 Настройка
 
