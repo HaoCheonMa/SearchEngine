@@ -24,25 +24,25 @@
 
 Команда в одну строку:
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" && cmake --build .
+`git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" && cmake --build .`
 
 Команды по отдельности:
 
-https://github.com/HaoCheonMa/SearchEngine.git
+`https://github.com/HaoCheonMa/SearchEngine.git`
 
-cd SearchEngine
+`cd SearchEngine`
 
-cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles"
+`cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles"`
 
-cmake --build .
+`cmake --build .`
 
 Запуск
 
 bash
 
-`./src/searchserver\`- запуск движка
+`./src/searchserver`- запуск движка
 
-`./tests/servertest\`- запуск тестов
+`./tests/servertest`- запуск тестов
 
 Настройка
 
