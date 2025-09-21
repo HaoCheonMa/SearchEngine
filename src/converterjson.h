@@ -41,9 +41,6 @@ public:
 	static nlohmann::json getJSONText(const std::string& path);
 	static const std::string configPath; // путь к конфиг файлу
 
-	static const std::string getName();
-	static const std::string getVersion();
-
 private:
 	static const std::string requestsPath; // путь к файлу запросов
 };
