@@ -21,10 +21,10 @@ FetchContent_MakeAvailable(json)
 enable_testing()
 
 add_executable(servertest indextests.cpp servertests.cpp
-        ${CMAKE_SOURCE_DIR}/SourceFiles/invertedindex.cpp
-        ${CMAKE_SOURCE_DIR}/SourceFiles/searchserver.cpp
-        ${CMAKE_SOURCE_DIR}/SourceFiles/converterjson.cpp)
+        ${CMAKE_SOURCE_DIR}/src/invertedindex.cpp
+        ${CMAKE_SOURCE_DIR}/src/searchserver.cpp
+        ${CMAKE_SOURCE_DIR}/src/converterjson.cpp)
 
-target_include_directories(servertest PUBLIC ${gtest_SOURCE_DIR}/HeaderFiles ${INCLUDE_DIR})
+target_include_directories(servertest PUBLIC ${gtest_SOURCE_DIR}/src ${INCLUDE_DIR})
 
 target_link_libraries(servertest PRIVATE gtest_main nlohmann_json::nlohmann_json)

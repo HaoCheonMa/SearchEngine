@@ -5,8 +5,8 @@ include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
-configure_file(${CMAKE_SOURCE_DIR}/json/config.json ${CMAKE_CURRENT_BINARY_DIR})
-configure_file(${CMAKE_SOURCE_DIR}/json/requests.json ${CMAKE_CURRENT_BINARY_DIR})
+#configure_file(${CMAKE_SOURCE_DIR}/config/config.json ${CMAKE_CURRENT_BINARY_DIR})
+#configure_file(${CMAKE_SOURCE_DIR}/config/requests.json ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(searchserver main.cpp converterjson.cpp invertedindex.cpp searchserver.cpp searchengine.cpp)
 

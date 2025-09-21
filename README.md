@@ -1,73 +1,56 @@
-# ITBoxSearchEngine
+# SearchEngine
 
-## О проекте
 
-**ITBoxSearchEngine** — это программа, реализующая простую поисковую систему по текстовым документам. Основные компоненты проекта:
+## Описание
 
-- **ConverterJSON** — чтение и запись данных из JSON-файлов (конфигурация, запросы, ответы).
-- **InvertedIndex** — построение инвертированного индекса с подсчетом частот слов в документах.
-- **SearchServer** — обработка поисковых запросов и ранжирование документов по релевантности.
 
-Проект поддерживает многопоточную обработку индекса, возвращает результаты в формате JSON с учетом максимального количества ответов на запрос.
+Простой поисковый движок на C++ с использованием JSON-конфигураций.
 
----
 
-## Требования
- 
-- CMake
-- Bash, CMD и т.п. 
-- Компилятор MinGW
+## Структура проекта
 
----
 
-## Сборка проекта
+- `bin/` — исполняемые файлы
 
-Команда для быстрой вставки: 
+- `config/` — конфигурационные файлы и данные
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" && cmake --build .
+- `resources/` — исходные тексты для индексации
+
+- `src/` — исходный код
+
+- `tests/` - тесты
+
+
+## Сборка
+
+Необходимо иметь компилятор MSVC
+
+Команда в одну строку:
+
+git clone https://github.com/HaoCheonMa/SearchEngine.git && cd SearchEngine && mkdir build && cd build && cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" .. && cmake --build . --config Release
 
 Команды по отдельности:
 
-git clone https://github.com/HaoCheonMa/SearchEngine.git
+https://github.com/HaoCheonMa/SearchEngine.git
 
 cd SearchEngine
 
-cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "MinGW Makefiles" ..
+mkdir build
 
-cmake --build .
+cd build
 
----
+cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" ..
 
-## Запуск проекта
+cmake --build . --config Release
 
-Для запуска приложения выполните(bash):
+Запуск
 
-./searchserver.exe 
+bash
 
----
+./bin/searchserver
 
-## Запуск тестов
+Настройка
 
-Для запуска модульных тестов выполните(bash):
-
-./servertests.exe*
-
----
-
-## Команды
-
---
-
-*search* - запуск поиска по установкам из папки json
-
-*stop* - выход из программы
-
---
-
-## Функциональность проекта
-
-- Корректная загрузка конфигурации и списка файлов.  
-- Индексация документов с параллельной обработкой.  
-- Поддержка запросов из JSON и вычисление релевантности документов.  
-- Вывод результатов в формате JSON с учетом максимального количества ответов.  
-- Модульные тесты покрывают логику индексации и поиска.  
+    Редактируйте config/config.json для списка файлов
+    Редактируйте config/requests.json для запросов
+    Результаты в config/answers.json
