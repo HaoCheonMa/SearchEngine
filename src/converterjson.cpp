@@ -44,10 +44,7 @@ std::vector<std::string> ConverterJSON::getTextDocuments() {
 		buffer << fileText.rdbuf();
 		fileContent.push_back(buffer.str());
 	}
-
-	for (int i = 0; i < fileContent.size(); ++i)
-		fileContent[i] = fileContent[i];
-
+	
 	return fileContent;
 }
 
