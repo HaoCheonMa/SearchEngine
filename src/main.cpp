@@ -3,5 +3,5 @@
 
 int main() { 
   SearchEngine::startSearch(); 
-  std::cout << converter.getName() << "[" << converter.getVersion() << "] finish job\n";
+  std::cout << ConverterJSON::getName() << "[" << ConverterJSON::getVersion() << "] finish job\n";
 }
