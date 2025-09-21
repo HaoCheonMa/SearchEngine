@@ -46,11 +46,10 @@ public:
 	* Метод запускает движок
 	*/
 	static void startSearch();
-
-
-private:
 	static std::string name; // название движка
 	static std::string version; // версия
+
+private:
 	static int maxResponses; // кол-во ответов
 	static bool successStart; // статус запуска
 };
