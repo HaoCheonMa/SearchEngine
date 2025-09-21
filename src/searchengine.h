@@ -12,7 +12,7 @@
 class SearchEngine {
 public:
 	/**
-	* Конструктор проверяет успешность запуска
+	* РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїСЂРѕРІРµСЂСЏРµС‚ СѓСЃРїРµС€РЅРѕСЃС‚СЊ Р·Р°РїСѓСЃРєР°
 	*/
 	SearchEngine() {
 		nlohmann::json config = ConverterJSON::getJSONText(ConverterJSON::configPath);
@@ -38,20 +38,19 @@ public:
 	}
 
 	/**
-	* Метод возвращает результат
-	* @return возвращает результат запуска
+	* РњРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ СЂРµР·СѓР»СЊС‚Р°С‚
+	* @return РІРѕР·РІСЂР°С‰Р°РµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ Р·Р°РїСѓСЃРєР°
 	*/
 	static bool IsSuccessStart() { return successStart; }
 	/**
-	* Метод запускает движок
+	* РњРµС‚РѕРґ Р·Р°РїСѓСЃРєР°РµС‚ РґРІРёР¶РѕРє
 	*/
 	static void startSearch();
 
 
 private:
-	static std::string name; // название движка
-	static std::string version; // версия
-	static int maxResponses; // кол-во ответов
-	static bool successStart; // статус запуска
-	const static std::string cmd; // переменная, принимающая ввод
+	static std::string name; // РЅР°Р·РІР°РЅРёРµ РґРІРёР¶РєР°
+	static std::string version; // РІРµСЂСЃРёСЏ
+	static int maxResponses; // РєРѕР»-РІРѕ РѕС‚РІРµС‚РѕРІ
+	static bool successStart; // СЃС‚Р°С‚СѓСЃ Р·Р°РїСѓСЃРєР°
 };
