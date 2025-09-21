@@ -15,6 +15,18 @@ nlohmann::json ConverterJSON::getJSONText(const std::string & path) {
 	return configText;
 }
 
+const std::string getName(){
+	nlohmann::json config = getJSONText(configPath);
+	std::string name = confi["config"]["name"];
+	return name;
+}
+
+const std::string getVersion(){
+	nlohmann::json config = getJSONText(configPath);
+	std::string version = confi["config"]["version"];
+	return version;
+}
+
 static std::string normalizeWord(const std::string& word) {
     std::string result;
     for (char c : word) {
