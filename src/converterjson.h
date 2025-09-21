@@ -13,34 +13,37 @@ public:
 	ConverterJSON() = default;
 
 	/**
-	* Метод получения содержимого файлов
-	* @return Возвращает список с содержимым файлов перечисленных
-	* в config.json
+	* ГЊГҐГІГ®Г¤ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГЈГ® ГґГ Г©Г«Г®Гў
+	* @return Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ Г±ГЇГЁГ±Г®ГЄ Г± Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г»Г¬ ГґГ Г©Г«Г®Гў ГЇГҐГ°ГҐГ·ГЁГ±Г«ГҐГ­Г­Г»Гµ
+	* Гў config.json
 	*/
 	static std::vector<std::string> getTextDocuments(); 
 	/**
-	* Метод считывает поле max_responses для определения предельного
-	* количества ответов на один запрос
+	* ГЊГҐГІГ®Г¤ Г±Г·ГЁГІГ»ГўГ ГҐГІ ГЇГ®Г«ГҐ max_responses Г¤Г«Гї Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЇГ°ГҐГ¤ГҐГ«ГјГ­Г®ГЈГ®
+	* ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  Г®ГІГўГҐГІГ®Гў Г­Г  Г®Г¤ГЁГ­ Г§Г ГЇГ°Г®Г±
 	* @return
 	*/
 	static int getResponsesLimit();
 	/**
-	* Метод получения запросов из файла requests.json
-	* @return возвращает список запросов из файла requests.json
+	* ГЊГҐГІГ®Г¤ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г§Г ГЇГ°Г®Г±Г®Гў ГЁГ§ ГґГ Г©Г«Г  requests.json
+	* @return ГўГ®Г§ГўГ°Г Г№Г ГҐГІ Г±ГЇГЁГ±Г®ГЄ Г§Г ГЇГ°Г®Г±Г®Гў ГЁГ§ ГґГ Г©Г«Г  requests.json
 	*/
 	static std::vector<std::string> getRequests();
 	/**
-	* Положить в файл answers.json результаты поисковых запросов
+	* ГЏГ®Г«Г®Г¦ГЁГІГј Гў ГґГ Г©Г« answers.json Г°ГҐГ§ГіГ«ГјГІГ ГІГ» ГЇГ®ГЁГ±ГЄГ®ГўГ»Гµ Г§Г ГЇГ°Г®Г±Г®Гў
 	*/
 	static void putAnswers(std::vector<std::vector<std::pair<int, float>>> answers);
 	/**
-	* Метод получения текста из JSON файлов
-	* @param path принимает путь к файлу
-	* @return возвращает информацию содержащуюся в JSON файле
+	* ГЊГҐГІГ®Г¤ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї ГІГҐГЄГ±ГІГ  ГЁГ§ JSON ГґГ Г©Г«Г®Гў
+	* @param path ГЇГ°ГЁГ­ГЁГ¬Г ГҐГІ ГЇГіГІГј ГЄ ГґГ Г©Г«Гі
+	* @return ГўГ®Г§ГўГ°Г Г№Г ГҐГІ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г±Г®Г¤ГҐГ°Г¦Г Г№ГіГѕГ±Гї Гў JSON ГґГ Г©Г«ГҐ
 	*/
 	static nlohmann::json getJSONText(const std::string& path);
-	static const std::string configPath; // путь к конфиг файлу
+	static const std::string configPath; // ГЇГіГІГј ГЄ ГЄГ®Г­ГґГЁГЈ ГґГ Г©Г«Гі
+
+	static const std::string getName();
+	static const std::string getVersion();
 
 private:
-	static const std::string requestsPath; // путь к файлу запросов
+	static const std::string requestsPath; // ГЇГіГІГј ГЄ ГґГ Г©Г«Гі Г§Г ГЇГ°Г®Г±Г®Гў
 };
